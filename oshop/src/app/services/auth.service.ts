@@ -1,5 +1,5 @@
 import { UserService } from './user.service';
-import { AppUser } from './model/app-user';
+import { AppUser } from '../model/app-user';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -22,7 +22,7 @@ export class AuthService {
   login() {
     let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
-    
+    localStorage.setItem('homeUrl','/')
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   }
 

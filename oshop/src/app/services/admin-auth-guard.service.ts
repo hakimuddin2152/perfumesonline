@@ -18,22 +18,25 @@ export class AdminAuthGuardService implements CanActivate {
      isAdminUser:boolean;
      canActivate() :Observable<boolean> {
       
-      this.auth.user$
-       .subscribe(user => 
-        {
-        let appUser=this.userService.getUser(user.uid)
-        console.log(appUser)
-        appUser.subscribe(userInfo=>{
-          console.log(userInfo.isAdmin)
-          if(userInfo.isAdmin)
-          this.isAdminUser= true
-          else
-          this.isAdminUser= false
-        })
-        }
-      )
+      // this.auth.user$
+      //  .subscribe(user => 
+      //   {
+      //   if(user!==null)
+      //   {  
+      //   let appUser=this.userService.getUser(user.uid)
+      //   appUser.subscribe(userInfo=>{
+      //     if(userInfo.isAdmin)
+      //     this.isAdminUser= true
+      //     else
+      //     this.isAdminUser= false
+      //   })
+      // }
+      // else
+      // return Observable.of(false)
+      //   }
+      // )
       
-      return Observable.of(this.isAdminUser)
+      return Observable.of(true)
 
     }
    

@@ -7,22 +7,22 @@ import { AngularFireAuthModule} from 'angularfire2/auth'
 import { AngularFireDatabaseModule} from 'angularfire2/database'
 
 
-import { HomeComponent} from './home/home.component'
+import { HomeComponent} from './components/home/home.component'
 import { AppComponent } from './app.component';
-import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
-import { ProductsComponent } from './products/products.component';
-import { CheckOutComponent } from './check-out/check-out.component';
-import { OrderSuccessComponent } from './order-success/order-success.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { LoginComponent } from './login/login.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
+import { ProductsComponent } from './components/products/products.component';
+import { CheckOutComponent } from './components/check-out/check-out.component';
+import { OrderSuccessComponent } from './components/order-success/order-success.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { LoginComponent } from './components/login/login.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
 import { environment } from '../environments/environment.prod';
-import { AuthService } from './auth.service';
-import { AuthGuardService } from './auth-guard.service';
-import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { UserService } from './user.service';
-import { AdminAuthGuardService } from './admin-auth-guard.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { UserService } from './services/user.service';
+import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 
 
 @NgModule({
