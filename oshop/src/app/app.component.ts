@@ -20,8 +20,7 @@ export class AppComponent {
         console.log(returnUrl)
           if(returnUrl!='/')
             route.navigateByUrl(returnUrl)
-          else
-            route.navigateByUrl('/')
+          
       }
      }
     )

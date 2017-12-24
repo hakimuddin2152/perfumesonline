@@ -5,7 +5,7 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap'
 import { AngularFireModule} from 'angularfire2'
 import { AngularFireAuthModule} from 'angularfire2/auth'
 import { AngularFireDatabaseModule} from 'angularfire2/database'
-
+import { FormsModule} from '@angular/forms'
 
 import { HomeComponent} from './components/home/home.component'
 import { AppComponent } from './app.component';
@@ -23,6 +23,9 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { UserService } from './services/user.service';
 import { AdminAuthGuardService } from './services/admin-auth-guard.service';
+import { BsLeftNavComponent } from './components/bs-left-nav/bs-left-nav.component';
+import { CategoryService } from './services/category.service'
+import { ProductService } from './services/product.service';
 
 
 @NgModule({
@@ -37,10 +40,12 @@ import { AdminAuthGuardService } from './services/admin-auth-guard.service';
     LoginComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    BsLeftNavComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -65,7 +70,11 @@ import { AdminAuthGuardService } from './services/admin-auth-guard.service';
     AuthService,
     AuthGuardService,
     AdminAuthGuardService,
-    UserService
+    UserService,
+    CategoryService,
+    ProductService
+    
+
   ],
   bootstrap: [AppComponent]
 })

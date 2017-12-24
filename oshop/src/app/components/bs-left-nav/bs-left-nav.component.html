@@ -1,0 +1,6 @@
+<ul class="nav flex-column">
+  <li  *ngFor="let c of categories$ | async" class="nav-item">
+    <!-- <li class="nav-item"> -->
+    <a class="nav-link" href="#">{{c.description }}</a>
+  </li>
+</ul>
