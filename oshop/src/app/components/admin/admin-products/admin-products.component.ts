@@ -4,6 +4,7 @@ import { CategoryService } from '../../../services/category.service';
 import { ProductService } from '../../../services/product.service';
 import { forEach } from '@angular/router/src/utils/collection';
 import { async } from '@angular/core/testing';
+import { NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap/timepicker/timepicker.module';
 
 
 @Component({
@@ -14,9 +15,10 @@ import { async } from '@angular/core/testing';
 export class AdminProductsComponent implements OnInit {
 
   categories$:Observable<any>
-  
-  constructor(private categoryService:CategoryService, private productService: ProductService) {
-    this.categories$=categoryService.getCategories()
+  showProductForm:boolean
+  showCategoryForm:boolean=true
+  constructor(private productService: ProductService) {
+    this.categories$=productService.getCategories()
   }
 
 // title:string
@@ -31,9 +33,30 @@ export class AdminProductsComponent implements OnInit {
 //      imageUrl:this.imageUrl,
 
 //    }
-   save(product){
-     console.log(product)
+   saveProduct(product){
      this.productService.saveProduct(product)
+   }
+
+   saveCategory(category){
+    this.productService.saveCategory(category)
+   }
+
+   showForm(event)
+   {
+     let linkId=event.srcElement.attributes.id.nodeValue
+     console.log(linkId)
+     console.log(event)
+     if(linkId=="productLink")
+     {
+     this.showCategoryForm=false
+     this.showProductForm=true
+     }
+     else if (linkId=="categoryLink")
+     {
+      this.showProductForm=false
+       this.showCategoryForm=true
+      
+     }
    }
   ngOnInit() {
   }

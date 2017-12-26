@@ -1,5 +1,43 @@
+<div class="row">
+  <div class="col-3">
+      <ul class="list-group">
+          <li  class="list-group-item">
+              <!-- <li class="nav-item"> -->
+              <a class="nav-link" id="productLink" (click)="showForm($event)">Add Product</a>
+            </li>
 
-    <form #f="ngForm" (ngSubmit)="save(f.value)">
+          <li  class="list-group-item">
+            <!-- <li class="nav-item"> -->
+            <a class="nav-link" id="categoryLink" (click)="showForm($event)">Add Category</a>
+          </li>
+                 </ul>
+
+        </div>
+
+        <div *ngIf="showCategoryForm" class="col-9">
+            <form #f="ngForm" (ngSubmit)="saveCategory(f.value)">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" ngModel name="name" 
+                  class="form-control" id="name" aria-describedby="title" 
+                  placeholder="Enter Category Name">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" ngModel name="description" rows="4" class="form-control" id="description" aria-describedby="Description" 
+                    placeholder="Enter Description">
+                  </div>
+        
+                  <div class="form-group">
+                <button type="save" class="btn btn-primary">Save</button>
+              </div>
+              </form>
+        
+        
+        </div>
+
+<div *ngIf="showProductForm" class="col-9">
+    <form #f="ngForm" (ngSubmit)="saveProduct(f.value)">
         <div class="form-group">
           <label for="title">Title</label>
           <input type="text" ngModel name="title" 
@@ -19,6 +57,13 @@
           </select>
         </div>
         <div class="form-group">
+            <label for="category">Price</label>
+            <input type="text" ngModel name="price" class="form-control" id="price" 
+            aria-describedby="Price" 
+            placeholder="Enter price">
+          </div>
+
+        <div class="form-group">
             <label for="imageUrl">Image Url</label>
             <input type="text" ngModel name="imageUrl" 
             class="form-control" id="imageUrl" aria-describedby="Image Url" 
@@ -29,3 +74,9 @@
       </div>
       </form>
 
+
+</div>   
+</div>
+
+   
+ 

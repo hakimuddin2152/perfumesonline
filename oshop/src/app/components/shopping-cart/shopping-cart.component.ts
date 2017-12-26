@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private db:AngularFireDatabase) { }
+save(obj){
+  this.db.object('/files/'+obj.name).set(btoa(obj.description))
+}
   ngOnInit() {
   }
 

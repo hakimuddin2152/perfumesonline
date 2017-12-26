@@ -1,13 +1,39 @@
-<div class="row">
-  <div class="col-md-3">
-    <app-bs-left-nav></app-bs-left-nav>
-    
-  </div>
-  <div class="col-md-9 col-md-offset-1">
+<div class="row"> 
+    <div class="col-3">
+        <ul class="list-group">
+            <li  *ngFor="let c of categories$ | async" class="list-group-item">
+              <!-- <li class="nav-item"> -->
+              <a class="nav-link" href="#">{{c.description }}</a>
+            </li>
+          </ul>
+    </div>
+ 
+  <div class="col-9 col-offset-2">
+    <div class="row">
 
-  </div>
-
+        <ng-container *ngFor="let p of products$ | async; let i = index">
+            
+          <div class="col">
+                <div class="card" style="width: 20rem; margin-bottom:20px;">
+                    <img class="card-img-top" [src]= "imageUrl+(i+1)+imageExt" 
+                    alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">{{p.title}}</h4>
+                      <p class="card-text">{{p.description}}</p>
+                      <p class="card-text">{{p.price}}</p>
+                      <a href="#" class="btn btn-primary">Add to cart</a>
+                    </div>
+                  </div>
+          
+        
+      </div>
+      <div *ngIf="(i+1)%2===0" class="w-100"></div>
+        </ng-container>  
+    </div>
+  
 </div>
+</div>
+
 
 
 

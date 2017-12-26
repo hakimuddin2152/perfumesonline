@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class BsNavbarComponent {
   appUser: AppUser;
-
+  displayNav:boolean;
   constructor(private auth: AuthService,private route:Router) { 
     auth.appUser$.subscribe(appUser => this.appUser = appUser);
   }
@@ -21,6 +21,11 @@ export class BsNavbarComponent {
       this.route.navigateByUrl('/')
     }, 2000);
     
+  }
+
+  toggleNav() {
+    this.displayNav=!this.displayNav
+    console.log(this.displayNav)
   }
 
 }

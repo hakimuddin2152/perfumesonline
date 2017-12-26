@@ -9,12 +9,20 @@ export class ProductService {
 
    }
 
+   getCategories() : Observable<any>{
+    return this.db.list('/categories').valueChanges();
+  }
    getProducts(): Observable<any> {
     return this.db.list('/products').valueChanges()
    }
 
    saveProduct(product){
      return this.db.list('/products').push(product)
+   }
+
+   saveCategory(category){
+    console.log(category)
+     return this.db.object('/categories/'+category.name+'/').update(category)
    }
 
 

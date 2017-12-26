@@ -1,11 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
   <a class="navbar-brand" routerLink="/"><img src="../../../assets/img/attar-bottle.jpg" 
     style="width:50px; hieght:50px" title="logo" >Badshah Perfumes</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" 
+  data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" 
+  aria-expanded="false" aria-label="Toggle navigation" >
+    <span class="navbar-toggler-icon" (click)="toggleNav()"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse" [ngClass]="{'show':displayNav}" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/shopping-cart">Shopping Cart</a>
