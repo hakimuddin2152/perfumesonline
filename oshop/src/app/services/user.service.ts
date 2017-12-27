@@ -19,7 +19,7 @@ export class UserService {
     this.db.object('/users/'+user.uid).set({
       name:user.displayName,
       email:user.email,
-      isAdmin:true
+      isAdmin:false
     })
    }
    

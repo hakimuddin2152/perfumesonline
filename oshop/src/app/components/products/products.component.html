@@ -1,33 +1,52 @@
 <div class="row"> 
-    <div class="col-3">
+    <div class="col-3 d-none d-md-block">
         <ul class="list-group">
+            <li class="list-group-item active">Category</li>
             <li  *ngFor="let c of categories$ | async" class="list-group-item">
-              <!-- <li class="nav-item"> -->
               <a class="nav-link" href="#">{{c.description }}</a>
             </li>
           </ul>
     </div>
+
+    <div class="col-12 col-offset-2 d-block d-sm-none">
+        <div ngbDropdown class="dropdown">
+            <button ngbDropdownToggle class="btn btn-primary dropdown-toggle" type="button" 
+            id="dropdownMenuButton" data-toggle="dropdown" >
+             Category
+            </button>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a *ngFor="let c of categories$ | async" 
+                class="nav-link" href="#">{{c.description }}</a>
+            </div>
+          </div>
+          <br>
+ <br>
+    </div>
  
-  <div class="col-9 col-offset-2">
+  <div class="col-md-9 col-12">
     <div class="row">
 
         <ng-container *ngFor="let p of products$ | async; let i = index">
             
-          <div class="col">
-                <div class="card" style="width: 20rem; margin-bottom:20px;">
+          <div class="col-6 col-md-4">
+              <div class="card-deck">
+                <div class="card" style="margin-bottom:30px;">
                     <img class="card-img-top" [src]= "imageUrl+(i+1)+imageExt" 
                     alt="Card image cap">
                     <div class="card-body">
                       <h4 class="card-title">{{p.title}}</h4>
                       <p class="card-text">{{p.description}}</p>
                       <p class="card-text">{{p.price}}</p>
-                      <a href="#" class="btn btn-primary">Add to cart</a>
+                      
+                      
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">Add to cart</a>
                     </div>
                   </div>
-          
+          </div>
         
       </div>
-      <div *ngIf="(i+1)%2===0" class="w-100"></div>
         </ng-container>  
     </div>
   
